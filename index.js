@@ -73,6 +73,18 @@ const handleClick = () => {
     console.log(this.textContent); // returns undefined
 }
 button.addEventListener('click', handleClick)
+/**Evaluation or response
+ * the 'this' keyword in a function declaration or anonymous function points or is a reference to the element calling the event. And in this cases that's the button element. Logging this to the console called in the function expression, it returned the element attached to the addEventlistener method, calling 'this' on the 'id' logs the value of the id passed as an attribute to the element. However when an arrow function is used the 'this' keyword points to the window object. This is clear in the example when 'this' was logged to the console. 'this.id' returned undefined since where was no property of 'id' on the window object. From this it's clear the calling 'this' in the addEventListener method would reference the window object whiles in the function declaration or anonymous function expression it refers to the element attached to the event listener.
+ */
+
+// 3.Private Data with Closures and this:
+// • Create a function createCounter() that:
+// o Has a private variable count initialized to 0.
+// o Returns an object with two methods:
+// 1. increment(): Increments the count and logs the new value
+// to the console using this.count.
+// 2. getCount(): Returns the current value of count.
+
 
 
 
