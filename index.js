@@ -85,6 +85,25 @@ button.addEventListener('click', handleClick)
 // to the console using this.count.
 // 2. getCount(): Returns the current value of count.
 
+const createCounter = function() {
+    let count = 0;
+    return {
+        increment() {
+            count += 1;
+            console.log(this.count) // returns undefined
+            console.log(count)
+        },
+        getCount() {
+            console.log(count);
+        }
+    }
+}
+const counter = createCounter();
+counter.increment();
+counter.increment();
+counter.increment();
+counter.increment();
+counter.getCount();
 
 
 
