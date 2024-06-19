@@ -34,14 +34,14 @@ const greet = function() {
 }
 
 Person.greet = greet;
-Person.greet();
+// Person.greet();
 
 const Woman = {
     name: 'Emilia', 
     age: 32,
 };
 Woman.greet = greet;
-Woman.greet();
+// Woman.greet();
 
 
 // Using object constructor
@@ -55,7 +55,7 @@ const Person1 = function(name, age) {
 
 
 const person1 = new Person1('kofi', 2)
-console.log(person1);
+// console.log(person1);
 
 
 
@@ -98,12 +98,47 @@ const createCounter = function() {
         }
     }
 }
-const counter = createCounter();
-counter.increment();
-counter.increment();
-counter.increment();
-counter.increment();
-counter.getCount();
+/**
+ * logging the count variable using the this keyword would return undefined. this.count is equivalent to saying counter.count or objectCallingTheMethod.count as the 'this' keyword would point to or is a reference to the object calling the method. And in this situation the count does not exists in the object as it was not returned as part of the properties of the object.
+ */
+// const counter = createCounter();
+// counter.increment();
+// counter.increment();
+// counter.increment();
+// counter.increment();
+// counter.getCount();
+
+
+// 4. Reusable Component with Closure and this.
+// Create a function createTimer(duration, elementId) that:
+// Takes a duration in seconds and an elementId as input.
+// Starts a timer that counts down from duration to 0.
+
+// Updates the content of the element with the given elementId to
+// display the remaining time every second.
+// When the timer reaches 0, logs a message to the console.
+// Uses closures to store the timer’s state (remaining time) and this to refer to the correct element.
+
+const createTimer = function(duration, elementId) {
+    // initializing state and element reference
+    let time = duration; // private value
+    const element = document.getElementById(elementId);
+
+    const timer = () => {
+        element.textContent = time;
+        time -= 1;
+        if (time <  0) {
+            console.log('Your time is up!!!!');
+            // removeSetInterval(timer);
+            clearInterval(interval);
+
+        }
+    }
+    // set the timer
+    const interval = setInterval(timer, 1000)
+}
+createTimer(10, 'display');
+
 
 
 
